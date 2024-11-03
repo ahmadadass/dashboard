@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Pie Chart Example</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', { packages: ['corechart'] });
+
+        // Set a callback to run when the API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+
+           
+        function drawChart() {
+            // Create the data table.
+            const data = {"callback_query": {"data": "deploy"}}
+
+            fetch("https://ucasdemo.netlify.app/.netlify/functions/telegramwebhook",{
+                method: 'POST', // Specifies the request type
+                headers: {
+                    'Content-Type': 'application/json' // Specifies that we're sending JSON
+                },
+                body: JSON.stringify(data) // Converts the data object to JSON
+            })
+            .then(response => {
+                if (!response.ok) {throw new Error('Network response was not ok')}
+                    return response.json()
+                })
+            .then(data => {console.log('Success:', data)})
+            .catch(error => {console.error('Error:', error)});
+            
+            var data_values = google.visualization.arrayToDataTable([
+                ['Month', 'Sales'],
+                ['January', 1000],
+                ['February', 1170],
+                ['March', 660],
+                ['April', 1030],
+                ['May', 920]
+            ]);
+        
+
+            // Set chart options for a pie chart
+            var options = {
+                title: 'Sales Distribution',
+                is3D: true,  // Adds a 3D effect
+                pieSliceText: 'value',
+                slices: {
+                    1: { offset: 0.1 },  // Offset a slice for emphasis
+                },
+                backgroundColor: '#f4f4f4',
+                legend: { position: 'right' }
+            };
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data_values, options);
+        }
+    </script>
+</head>
+<body>
+    <h1>Sales Distribution by Month</h1>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+</body>
+</html>
