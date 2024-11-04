@@ -45,9 +45,30 @@
                 ['April', 1030],
                 ['May', 920]
             ]*/
-        
 
+            // Set chart options for a Column Chart
+            var options = {
+                title: 'Monthly Sales Data with Long Labels',
+                hAxis: {
+                    title: 'Month',
+                    slantedText: true,  // Makes the labels slanted for more space
+                    slantedTextAngle: 0,  // Sets the angle of the slant
+                    textStyle: {
+                        fontSize: 12  // Adjusts font size to make more visible
+                    }
+                },
+                vAxis: {
+                    title: 'Sales'
+                },
+                chartArea: {
+                    width: '80%',  // Ensures there's space for long labels
+                    height: '70%'
+                },
+                legend: { position: 'none' },
+                colors: ['#76A7FA']
+            };
             // Set chart options for a pie chart
+            /*
             var options = {
                 title: 'عدد المستخدمين',
                 is3D: true,  // Adds a 3D effect
@@ -57,7 +78,7 @@
                 },
                 backgroundColor: '#f4f4f4',
                 legend: { position: 'right' }
-            };
+            };*/
 
             // Instantiate and draw the chart.
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
