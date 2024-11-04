@@ -52,11 +52,15 @@
                 title: 'عدد المستخدمين',
                 is3D: true,  // Adds a 3D effect
                 pieSliceText: 'value',
-                slices: {
-                    1: { offset: 0.6 },  // Offset a slice for emphasis
-                },
+                /*slices: {
+                    1: { offset: 0.1 },  // Offset a slice for emphasis
+                },*/
                 backgroundColor: '#f4f4f4',
-                legend: { position: 'right' }
+                legend: { position: 'right' },
+                chartArea: {
+                    width: '80%',
+                    height: '70%'
+                }
             };
 
             // Instantiate and draw the chart.
