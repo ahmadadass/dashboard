@@ -14,21 +14,22 @@
 
         async function drawChart() {
             // Create the data table.
-                try {
-                    const response = await fetch('/.netlify/functions/server', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({car: "thiscodeisnotforshaering"}),
-                });
+            try {
+                const response = await fetch('/.netlify/functions/server', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({car: "thiscodeisnotforshaering"}),
+            });
 
-                const data = await response.json();
-                console.log(data);
-                } catch (error) {
-                    console.error('Error calling serverless function:', error);
-                    document.getElementById('response').textContent = 'An error occurred';
-                }
+            const data = await response.json();
+
+            console.log("data form server.js: " , data);
+            } catch (error) {
+                console.error('Error calling serverless function:', error);
+                document.getElementById('response').textContent = 'An error occurred';
+            }
             
 
             var data_values = google.visualization.arrayToDataTable(

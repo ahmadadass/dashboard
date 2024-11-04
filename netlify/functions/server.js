@@ -35,7 +35,7 @@ exports.handler = async (event, context) => {
         headers: {
             'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
         },
-        body: JSON.stringify(body),
+        body: JSON.stringify(data),
     };
 };
 
