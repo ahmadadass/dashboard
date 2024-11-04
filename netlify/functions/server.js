@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
 
 
     const message = body.car;
-    const data = {error: 'error'} 
+    let data = {error: 'error'} 
     if (message == "thiscodeisnotforshaering") { 
         data = await getdata(callback_api);
     }
