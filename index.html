@@ -12,63 +12,6 @@
         // Set a callback to run when the API is loaded.
         google.charts.setOnLoadCallback(drawChart);
 
-        async function drawChart() {
-            // Create the data table.
-            let data;
-            try {
-                const response = await fetch('/.netlify/functions/server', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({car: "thiscodeisnotforshaering"}),
-            });
-
-            data = await response.json();
-
-            console.log("data form server.js: " , data);
-            } catch (error) {
-                console.error('Error calling serverless function:', error);
-                document.getElementById('response').textContent = 'An error occurred';
-            }
-            
-            data.statistics.unshift(['عمادة', 'العدد']);
-
-            var data_values = google.visualization.arrayToDataTable(
-                data.statistics
-            );
-            /*[
-                ['Month', 'Sales'],
-                ['January', 1000],
-                ['February', 1170],
-                ['March', 660],
-                ['April', 1030],
-                ['May', 920]
-            ]*/
-
-            
-            // Set chart options for a pie chart
-            var options = {
-                title: 'عدد المستخدمين',
-                is3D: true,  // Adds a 3D effect
-                pieSliceText: 'value',
-                /*slices: {
-                    1: { offset: 0.1 },  // Offset a slice for emphasis
-                },*/
-                backgroundColor: '#f4f4f4',
-                legend: { position: 'right' },
-                chartArea: {
-                    width: '80%',
-                    height: '70%'
-                }
-            };
-
-            // Instantiate and draw the chart.
-            //var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-            //var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-            chart.draw(data_values, options);
-        }
     </script>
     <style>
         body {
@@ -77,12 +20,8 @@
     </style>
 </head>
 <body>
-    <h1>هذا رسم بياني لعدد مستخدمي العمادات كما هو موضح أمامكم</h1>
-    <!--<form>
-        <input type="text" id="text"/>
-        <button id="get">GET</button>
-        <button id="post">POST</button>
-    </form>-->
-    <div id="chart_div" style="width: 50%; height: 70%;"></div>
+    <div id="dataContainer"></div>  <!-- Container for data -->
+    <h1>عدد مستخدمي العمادات</h1>
+    
 </body>
 </html>

@@ -12,7 +12,8 @@ app.listen(port, () => console.log(`server on port: ${port}`))*/
 const axios = require('axios');
 
 const callback_api = {callback_query: {data: "statistics"}}
-
+const response_ok = {statis: "good"}
+const response_not_ok = {statis: "bad"}
 exports.handler = async (event, context) => {
     // Get data from request body if it's a POST request
     const body = JSON.parse(event.body || '{}');
@@ -24,8 +25,26 @@ exports.handler = async (event, context) => {
 
     const message = body.car;
     let data;
-    if (message == "thiscodeisnotforshaering") { 
+    if (message == "thiscodeisnotforshaeringsenddata") { 
         data = await getdata(callback_api) || {};
+    } else if (message == "thiscodeisnotforshaeringlogin"){
+        if (body.username == "admin" && body.password == "adminisahmad"){
+            return {
+                statusCode: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
+                },
+                body: JSON.stringify(response_ok)
+            }
+        } else {
+            return {
+                statusCode: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
+                },
+                body: JSON.stringify(response_not_ok)
+            }
+        }
     }
 
     //console.log("data from : " , data);
@@ -51,3 +70,4 @@ async function getdata(data) {
         console.error(error);
     }
 }
+
