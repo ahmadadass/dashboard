@@ -28,14 +28,14 @@ exports.handler = async (event, context) => {
         data = await getdata(callback_api) || {};
     }
 
-    console.log(data);
+    //console.log("data from : " , data);
 
     return {
         statusCode: 200,
         headers: {
             'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
     };
 };
 
