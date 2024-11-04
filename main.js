@@ -9,7 +9,7 @@ loginview.innerHTML = `
     <form>
         <input type="text" id="username" placeholder="اسم المستخدم" required>
         <input type="password" id="password" placeholder="كلمة المرور" required>
-        <input  id="post" onclick="vrifaydata()">تسجيل</button>
+        <input type="button" id="post" onclick="vrifaydata()">تسجيل</button>
     </form>
 `
 console.log("dataContainer: ", dataContainer)
