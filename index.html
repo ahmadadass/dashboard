@@ -6,6 +6,12 @@
     <title>Google Pie Chart Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+
+        google.charts.load('current', { packages: ['corechart'] });
+
+        // Set a callback to run when the API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+        
         async function drawChart() {
             // Create the data table.
                 try {
