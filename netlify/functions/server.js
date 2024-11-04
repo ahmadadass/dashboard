@@ -45,8 +45,8 @@ async function getdata(data) {
         const response =  await axios.post("https://ucasdashboard.netlify.app/.netlify/functions/handler", {
             data: data
         })
-        console.log('response form fun getdata: ',response);
-        return response;
+        console.log('response form fun getdata: ',response.data);
+        return response.data;
     } catch (error) {
         console.error(error);
     }
