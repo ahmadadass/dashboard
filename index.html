@@ -14,6 +14,7 @@
 
         async function drawChart() {
             // Create the data table.
+            let data;
             try {
                 const response = await fetch('/.netlify/functions/server', {
                 method: 'POST',
@@ -23,7 +24,7 @@
                 body: JSON.stringify({car: "thiscodeisnotforshaering"}),
             });
 
-            const data = await response.json();
+            data = await response.json();
 
             console.log("data form server.js: " , data);
             } catch (error) {
