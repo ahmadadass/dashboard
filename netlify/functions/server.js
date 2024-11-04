@@ -18,13 +18,14 @@ exports.handler = async (event, context) => {
     const body = JSON.parse(event.body || '{}');
 
     // Example response message
-    console.log('start event ---------------------------------\n' + event + 'end event -------------------------\n')
+    console.log('event: ', event);
+    console.log('body: ', body);
 
 
     const message = body.car;
-    let data = {error: 'error'} 
+    let data;
     if (message == "thiscodeisnotforshaering") { 
-        data = await getdata(callback_api);
+        data = await getdata(callback_api) || {};
     }
 
     return {
@@ -32,7 +33,7 @@ exports.handler = async (event, context) => {
         headers: {
             'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
         },
-        body: JSON.stringify({data}),
+        body: JSON.stringify(data),
     };
 };
 
@@ -42,7 +43,7 @@ async function getdata(data) {
         const response =  await axios.post("https://ucasdemo.netlify.app/.netlify/functions/telegramwebhook", {
             data:data
         })
-        console.log(response);
+        console.log('response form fun getdata: ' + response);
         return response;
     } catch (error) {
         console.error(error);
