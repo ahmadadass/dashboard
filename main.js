@@ -6,11 +6,10 @@ loginview.classList.add('container')
 loginview.innerHTML = `
     <h1>تسجيل دخول</h1>
     
-    <form>
-        <input type="text" id="username" placeholder="اسم المستخدم" required>
-        <input type="password" id="password" placeholder="كلمة المرور" required>
-        <input type="button" id="post" onclick="vrifaydata()">تسجيل</button>
-    </form>
+    <input type="text" id="username" placeholder="اسم المستخدم" required>
+    <input type="password" id="password" placeholder="كلمة المرور" required>
+    <input type="button" id="post" onclick="vrifaydata()" value="بحث"></button>
+    
 `
 console.log("dataContainer: ", dataContainer)
 dataContainer.appendChild(loginview);
@@ -59,7 +58,6 @@ function setViewMain(){
     dataContainer.innerHTML = ``
     let mainView = document.createElement('div');
     mainView.innerHTML = ``
-    mainView.classList.add('container')
     mainView.innerHTML = `    
         <h1>عدد مستخدمي العمادات</h1>
         
