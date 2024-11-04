@@ -1,8 +1,4 @@
-const { datastore } = require("googleapis/build/src/apis/datastore");
-
 const dataContainer = document.getElementById('dataContainer');
-let username = document.querySelector('#username');
-let password = document.querySelector('#password');
 
 let loginview = document.createElement('div');
 loginview.innerHTML = ``
@@ -21,6 +17,8 @@ dataContainer.appendChild(loginview);
 
 async function vrifaydata() {
     let data;
+    let username = document.querySelector('#username');
+    let password = document.querySelector('#password');
     try {
         const response = await fetch('/.netlify/functions/server', {
         method: 'POST',
