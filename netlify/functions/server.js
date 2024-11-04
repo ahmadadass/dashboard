@@ -11,7 +11,7 @@ app.get('/', (req,res) => {
 app.listen(port, () => console.log(`server on port: ${port}`))*/
 const axios = require('axios');
 
-const callback_api = {"callback_query": {"data": "statistics"}}
+const callback_api = {callback_query: {data: "statistics"}}
 
 exports.handler = async (event, context) => {
     // Get data from request body if it's a POST request
@@ -28,12 +28,14 @@ exports.handler = async (event, context) => {
         data = await getdata(callback_api) || {};
     }
 
+    console.log(data);
+
     return {
         statusCode: 200,
         headers: {
             'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
     };
 };
 
@@ -41,7 +43,7 @@ exports.handler = async (event, context) => {
 async function getdata(data) {
     try {
         const response =  await axios.post("https://ucasdemo.netlify.app/.netlify/functions/telegramwebhook", {
-            data:data
+            data: data
         })
         console.log('response form fun getdata: ',response);
         return response;
