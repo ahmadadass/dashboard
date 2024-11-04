@@ -8,7 +8,7 @@ loginview.innerHTML = `
     
     <input type="text" id="username" placeholder="اسم المستخدم" required>
     <input type="password" id="password" placeholder="كلمة المرور" required>
-    <input type="button" id="post" onclick="vrifaydata()" value="بحث"></button>
+    <input type="button" id="post" onclick="vrifaydata()" value="دخول"></button>
     
 `
 console.log("dataContainer: ", dataContainer)
@@ -58,6 +58,7 @@ function setViewMain(){
     dataContainer.innerHTML = ``
     let mainView = document.createElement('div');
     mainView.innerHTML = ``
+    mainView.classList.add('')
     mainView.innerHTML = `    
         <h1>عدد مستخدمي العمادات</h1>
         
