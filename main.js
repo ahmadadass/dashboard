@@ -12,7 +12,7 @@ loginview.innerHTML = `
         <input  id="post" onclick="vrifaydata()">تسجيل</button>
     </form>
 `
-
+console.log("dataContainer: ", dataContainer)
 dataContainer.appendChild(loginview);
 
 async function vrifaydata() {
