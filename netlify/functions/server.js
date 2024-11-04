@@ -10,7 +10,6 @@ app.get('/', (req,res) => {
 
 app.listen(port, () => console.log(`server on port: ${port}`))*/
 const axios = require('axios');
-const { datacatalog } = require('googleapis/build/src/apis/datacatalog');
 
 const callback_api = {"callback_query": {"data": "statistics"}}
 
