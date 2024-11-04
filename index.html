@@ -31,14 +31,17 @@
                 }
             
 
-            var data_values = google.visualization.arrayToDataTable([
+            var data_values = google.visualization.arrayToDataTable(
+                data.statistics
+            );
+            /*[
                 ['Month', 'Sales'],
                 ['January', 1000],
                 ['February', 1170],
                 ['March', 660],
                 ['April', 1030],
                 ['May', 920]
-            ]);
+            ]*/
         
 
             // Set chart options for a pie chart

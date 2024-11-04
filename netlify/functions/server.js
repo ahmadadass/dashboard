@@ -35,14 +35,14 @@ exports.handler = async (event, context) => {
         headers: {
             'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
         },
-        body: JSON.stringify(body),
+        body: JSON.stringify(data),
     };
 };
 
 
 async function getdata(data) {
     try {
-        const response =  await axios.post("https://ucasdemo.netlify.app/.netlify/functions/telegramwebhook", {
+        const response =  await axios.post("https://ucasdashboard.netlify.app/.netlify/functions/handler", {
             data: data
         })
         console.log('response form fun getdata: ',response);
