@@ -32,6 +32,7 @@
                 document.getElementById('response').textContent = 'An error occurred';
             }
             
+            data.statistics.unshift(['عمادة', 'العدد']);
 
             var data_values = google.visualization.arrayToDataTable(
                 data.statistics
