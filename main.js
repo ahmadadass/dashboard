@@ -2,7 +2,7 @@ const dataContainer = document.getElementById('dataContainer');
 
 let loginview = document.createElement('div');
 loginview.innerHTML = ``
-loginview.classList.add('card')
+//loginview.classList.add('card')
 loginview.innerHTML = `
     <h1>تسجيل دخول</h1>
     
