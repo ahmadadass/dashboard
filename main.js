@@ -11,7 +11,7 @@ loginview.innerHTML = `
     <input type="button" id="post" onclick="vrifaydata()" value="دخول"></button>
     
 `
-console.log("dataContainer: ", dataContainer)
+//console.log("dataContainer: ", dataContainer)
 dataContainer.appendChild(loginview);
 
 async function vrifaydata() {

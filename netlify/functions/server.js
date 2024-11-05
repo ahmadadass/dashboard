@@ -10,10 +10,12 @@ app.get('/', (req,res) => {
 
 app.listen(port, () => console.log(`server on port: ${port}`))*/
 const axios = require('axios');
+const e = require('express');
 
 const callback_api = {callback_query: {data: "statistics"}}
 const response_ok = {statis: "good"}
 const response_not_ok = {statis: "bad"}
+let userkey;
 exports.handler = async (event, context) => {
     // Get data from request body if it's a POST request
     const body = JSON.parse(event.body || '{}');
@@ -26,9 +28,20 @@ exports.handler = async (event, context) => {
     const message = body.car;
     let data;
     if (message == "thiscodeisnotforshaeringsenddata") { 
-        data = await getdata(callback_api) || {};
+        if (event.logToken == userkey){
+            data = await getdata(callback_api) || {};
+        } else {
+            return {
+                statusCode: 400,
+                headers: {
+                    'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
+                },
+                body: JSON.stringify(response_not_ok)
+            }
+        }
     } else if (message == "thiscodeisnotforshaeringlogin"){
         if (body.username == "admin" && body.password == "adminisahmad"){
+            userkey = event.logToken
             return {
                 statusCode: 200,
                 headers: {
@@ -38,7 +51,7 @@ exports.handler = async (event, context) => {
             }
         } else {
             return {
-                statusCode: 200,
+                statusCode: 400,
                 headers: {
                     'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
                 },
