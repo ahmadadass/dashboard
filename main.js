@@ -61,7 +61,7 @@ function setViewMain(){
     //mainView.classList.add('div')
     mainView.innerHTML = `    
         <h1>عدد مستخدمي العمادات</h1>
-        
+        <div class="loader"></div>
         <div id="chart_div" style="width: 400px; height: 200px;"></div>
         `
 
@@ -102,6 +102,16 @@ async function drawChart() {
     ['May', 920]
     ]*/
 
+    dataContainer.innerHTML = ``
+    let mainView = document.createElement('div');
+    mainView.innerHTML = ``
+    //mainView.classList.add('div')
+    mainView.innerHTML = `    
+        <h1>عدد مستخدمي العمادات</h1>
+        <div id="chart_div" style="width: 400px; height: 200px;"></div>
+        `
+
+    dataContainer.appendChild(mainView);
             
     // Set chart options for a pie chart
     var options = {
