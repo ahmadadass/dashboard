@@ -58,7 +58,7 @@ function setViewMain(){
     dataContainer.innerHTML = ``
     let mainView = document.createElement('div');
     mainView.innerHTML = ``
-    mainView.classList.add('')
+    //mainView.classList.add('div')
     mainView.innerHTML = `    
         <h1>عدد مستخدمي العمادات</h1>
         
