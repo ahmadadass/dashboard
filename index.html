@@ -21,20 +21,34 @@
         .container {
             display: flex;
             color: #2b2b2b;
-            background-color: #f0f4ad;
+            background-color: #b4ebf3;
             flex-direction: column;
             border-radius: 12px;
             padding: 30px;
-            max-width:fit-content;
-            max-height:fit-content;
+            max-width:max-content;
+            max-height:max-content;
             width: 90%;
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+
+        .card {
+            background-color: #ecf0a3;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0;
+            max-width: fit-content;
+            max-height: fit-content;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
     </style>
 </head>
 <body>
-    <div id="dataContainer"></div>  <!-- Container for data -->
+    <div class="container" id="dataContainer"></div>  <!-- Container for data -->
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
