@@ -90,9 +90,7 @@ async function drawChart() {
             
     data.statistics.unshift(['عمادة', 'العدد']);
 
-    var data_values = google.visualization.arrayToDataTable(
-        data.statistics
-    );
+    var data_values = google.visualization.arrayToDataTable(data.statistics);
     /*[
     ['Month', 'Sales'],
     ['January', 1000],
