@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
             data = await getdata(callback_api) || {};
         } else {
             return {
-                statusCode: 200,
+                statusCode: 400,
                 headers: {
                     'Access-Control-Allow-Origin': '*', // Enable CORS for local testing
                 },
