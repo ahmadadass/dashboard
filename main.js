@@ -62,7 +62,7 @@ function setViewMain(){
     mainView.innerHTML = `    
         <h1>عدد مستخدمي العمادات</h1>
         
-        <div id="chart_div" style="width: 50%; height: 70%;"></div>
+        <div id="chart_div" style="width: 70%; height: 100%;"></div>
         `
 
     dataContainer.appendChild(mainView);
