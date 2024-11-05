@@ -62,7 +62,7 @@ function setViewMain(){
     mainView.innerHTML = `    
         <h1>عدد مستخدمي العمادات</h1>
         
-        <div id="chart_div" style="width: 70%; height: 100%;"></div>
+        <div id="chart_div" style="width: 400px; height: 200px;"></div>
         `
 
     dataContainer.appendChild(mainView);
@@ -115,7 +115,7 @@ async function drawChart() {
         legend: { position: 'right' },
         chartArea: {
             width: '100%',
-            height: '70%'
+            height: '100%'
         }
     };
 
