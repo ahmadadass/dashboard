@@ -12,7 +12,8 @@ app.listen(port, () => console.log(`server on port: ${port}`))*/
 const axios = require('axios');
 const e = require('express');
 
-const callback_api = {callback_query: {data: "statistics"}}
+const callback_api_number_of_users = {callback_query: {data: "statistics"}}
+const callback_api_number_of_Cases = {callback_query: {data: "getCasesCount"}}
 const response_ok = {statis: "good"}
 const response_not_ok = {statis: "bad"}
 let userkey;
@@ -26,10 +27,12 @@ exports.handler = async (event, context) => {
 
 
     const message = body.car;
-    let data;
+    let userCountArray;
+    let caseCountArray;
     if (message == "thiscodeisnotforshaeringsenddata") { 
         if (event.logToken == userkey){
-            data = await getdata(callback_api) || {};
+            userCountArray = await getdata(callback_api_number_of_users) || {};
+            caseCountArray = await getdata(callback_api_number_of_Cases) || {};
         } else {
             return {
                 statusCode: 200,
@@ -61,6 +64,11 @@ exports.handler = async (event, context) => {
     }
 
     //console.log("data from : " , data);
+
+    data = {
+        users: userCountArray,
+        cases: caseCountArray
+    }
 
     return {
         statusCode: 200,

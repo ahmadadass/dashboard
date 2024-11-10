@@ -59,10 +59,10 @@ function setViewMain(){
     let mainView = document.createElement('div');
     mainView.innerHTML = ``
     //mainView.classList.add('div')
-    mainView.innerHTML = `    
-        <h1>عدد مستخدمي العمادات</h1>
+    mainView.innerHTML = `
         <div class="loader"></div>
-        <div id="chart_div" style="width: 400px; height: 200px;"></div>
+        <div id="chart_user" style="width: 400px; height: 200px;"></div>
+        <div id="chart_cases" style="width: 400px; height: 200px;"></div>
         `
 
     dataContainer.appendChild(mainView);
@@ -88,9 +88,11 @@ async function drawChart() {
         document.getElementById('response').textContent = 'An error occurred';
     }
             
-    data.statistics.unshift(['عمادة', 'العدد']);
+    data.users.statistics.unshift(['عمادة', 'العدد']);
+    data.cases.statistics.unshift(['عمادة', 'العدد']);
 
-    var data_values = google.visualization.arrayToDataTable(data.statistics);
+    var data_values_user = google.visualization.arrayToDataTable(data.users.statistics);
+    var data_values_cases = google.visualization.arrayToDataTable(data.cases.statistics);
     /*[
     ['Month', 'Sales'],
     ['January', 1000],
@@ -104,15 +106,15 @@ async function drawChart() {
     let mainView = document.createElement('div');
     mainView.innerHTML = ``
     //mainView.classList.add('div')
-    mainView.innerHTML = `    
-        <h1>عدد مستخدمي العمادات</h1>
-        <div id="chart_div" style="width: 400px; height: 200px;"></div>
+    mainView.innerHTML = `
+        <div id="chart_user" style="width: 400px; height: 200px;"></div>
+        <div id="chart_cases" style="width: 400px; height: 200px;"></div>
         `
 
     dataContainer.appendChild(mainView);
             
     // Set chart options for a pie chart
-    var options = {
+    let options = {
         title: 'عدد المستخدمين',
         is3D: true,  // Adds a 3D effect
         pieSliceText: 'value',
@@ -130,6 +132,11 @@ async function drawChart() {
     // Instantiate and draw the chart.
     //var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
     //var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-    chart.draw(data_values, options);
+    var chart_user = new google.visualization.PieChart(document.getElementById('chart_user'));
+    chart_user.draw(data_values_user, options);
+    
+    options.title = "عدد القضايى"
+    
+    var chart_cases = new google.visualization.PieChart(document.getElementById('chart_cases'));
+    chart_cases.draw(data_values_cases, options);
 }
