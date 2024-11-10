@@ -39,8 +39,6 @@ async function vrifaydata() {
         google.charts.load('current', { packages: ['corechart'] });
 
         // Set a callback to run when the API is loaded.
-        console.log("sleeping ...")
-        sleep(1000)
         google.charts.setOnLoadCallback(drawChart);
 
     } else if (data.statis == "bad"){
@@ -88,7 +86,7 @@ async function drawChart() {
             body: JSON.stringify({car: "thiscodeisnotforshaeringsenddata"}),
         });
 
-        data = await response.json();
+        data = response.json();
     //console.log("data form server.js: " , data);
     } catch (error) {
         console.error('Error calling serverless function:', error);
