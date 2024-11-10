@@ -19,11 +19,10 @@ const response_not_ok = {statis: "bad"}
 let userkey = 0;
 
 
-
 exports.handler = async (event, context) => {
     // Get data from request body if it's a POST request
     const body = JSON.parse(event.body || '{}');
-    console.log("user key: ", userKey);
+    console.log("user key: ", userkey);
 
     // Example response message
     console.log('event: ', event);
