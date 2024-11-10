@@ -66,10 +66,10 @@ function setViewMain(){
         <div class="loader"></div>
         <div class="row">
             <div class="column">
-                <div id="chart_user" style="width: 450px; height: 250px;"></div>
+                <div id="chart_user" style="width: 500px; height: 250px;"></div>
             </div>
             <div class="column">
-                <div id="chart_cases" style="width: 450px; height: 250px;"></div>
+                <div id="chart_cases" style="width: 500px; height: 250px;"></div>
             </div>
         </div>
         `
@@ -122,11 +122,11 @@ async function drawChart() {
         <div class="row">
             <div class="column">
                 <h1>عدد المستخدمين في العمادات</h1>
-                <div id="chart_user" style="width: 450px; height: 250px;"></div>
+                <div id="chart_user" style="width: 500px; height: 250px;"></div>
             </div>
             <div class="column">
                 <h1>القضايا الفنية</h1>
-                <div id="chart_cases" style="width: 450px; height: 250px;"></div>
+                <div id="chart_cases" style="width: 500px; height: 250px;"></div>
             </div>
         </div>
         `
