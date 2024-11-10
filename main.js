@@ -61,8 +61,8 @@ function setViewMain(){
     //mainView.classList.add('div')
     mainView.innerHTML = `
         <div class="loader"></div>
-        <div id="chart_user" style="width: 400px; height: 200px;"></div>
-        <div id="chart_cases" style="width: 400px; height: 200px;"></div>
+        <div id="chart_user" style="width: 500px; height: 250px;"></div>
+        <div id="chart_cases" style="width: 500px; height: 250px;"></div>
         `
 
     dataContainer.appendChild(mainView);
@@ -107,8 +107,8 @@ async function drawChart() {
     mainView.innerHTML = ``
     //mainView.classList.add('div')
     mainView.innerHTML = `
-        <div id="chart_user" style="width: 400px; height: 200px;"></div>
-        <div id="chart_cases" style="width: 400px; height: 200px;"></div>
+        <div id="chart_user" style="width: 500px; height: 250px;"></div>
+        <div id="chart_cases" style="width: 500px; height: 250px;"></div>
         `
 
     dataContainer.appendChild(mainView);
