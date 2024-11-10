@@ -86,7 +86,7 @@ async function drawChart() {
             body: JSON.stringify({car: "thiscodeisnotforshaeringsenddata"}),
         });
 
-        data = response.json();
+        data = await response.json();
     //console.log("data form server.js: " , data);
     } catch (error) {
         console.error('Error calling serverless function:', error);
