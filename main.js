@@ -62,8 +62,12 @@ function setViewMain(){
     mainView.innerHTML = `
         <div class="loader"></div>
         <div class="row">
-            <div id="chart_user" style="width: 500px; height: 250px;"></div>
-            <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+            <div class="column">
+                <div id="chart_user" style="width: 500px; height: 250px;"></div>
+            </div>
+            <div class="column">
+                <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+            </div>
         </div>
         `
 
@@ -108,9 +112,15 @@ async function drawChart() {
     let mainView = document.createElement('div');
     mainView.innerHTML = ``
     //mainView.classList.add('div')
-    mainView.innerHTML = `
-        <div id="chart_user" style="width: 500px; height: 250px;"></div>
-        <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+    mainView.innerHTML = ` 
+        <div class="row">
+            <div class="column">
+                <div id="chart_user" style="width: 500px; height: 250px;"></div>
+            </div>
+            <div class="column">
+                <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+            </div>
+        </div>
         `
 
     dataContainer.appendChild(mainView);
