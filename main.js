@@ -66,10 +66,10 @@ function setViewMain(){
         <div class="loader"></div>
         <div class="row">
             <div class="column">
-                <div id="chart_user" style="width: 400px; height: 250px;"></div>
+                <div id="chart_user" style="width: 450px; height: 250px;"></div>
             </div>
             <div class="column">
-                <div id="chart_cases" style="width: 400px; height: 250px;"></div>
+                <div id="chart_cases" style="width: 450px; height: 250px;"></div>
             </div>
         </div>
         `
@@ -122,11 +122,11 @@ async function drawChart() {
         <div class="row">
             <div class="column">
                 <h1>عدد المستخدمين في العمادات</h1>
-                <div id="chart_user" style="width: 400px; height: 250px;"></div>
+                <div id="chart_user" style="width: 450px; height: 250px;"></div>
             </div>
             <div class="column">
                 <h1>القضايا الفنية</h1>
-                <div id="chart_cases" style="width: 400px; height: 250px;"></div>
+                <div id="chart_cases" style="width: 450px; height: 250px;"></div>
             </div>
         </div>
         `
@@ -143,7 +143,7 @@ async function drawChart() {
             1: { offset: 0.1 },  // Offset a slice for emphasis
         },*/
         backgroundColor: '#b4ebf3',
-        //fontSize: '50px',
+        fontSize: '50px',
         legend: { 
             position: 'labeled',
             font_size: 20
