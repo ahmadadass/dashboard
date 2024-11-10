@@ -14,7 +14,7 @@ const e = require('express');
 
 const callback_api_number_of_users = {callback_query: {data: "statistics"}}
 const callback_api_number_of_Cases = {callback_query: {data: "getCasesCount"}}
-const response_ok = {statis: "good"}
+//const response_ok = {statis: "good"}
 const response_not_ok = {statis: "bad"}
 let cookies = [];
 
@@ -54,7 +54,7 @@ exports.handler = async (event, context) => {
             let cookie = Math.random().toString(36).substring(2,7);
             cookies.push(cookie)
 
-            response_ok = {
+            const response_ok = {
                 statis: "good",
                 cookie: cookie
             }
