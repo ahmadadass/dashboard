@@ -86,7 +86,10 @@ async function drawChart() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({car: "thiscodeisnotforshaeringsenddata"}),
+            body: JSON.stringify({
+                car: "thiscodeisnotforshaeringsenddata",
+                cookie: cookie
+            }),
         });
 
         data = await response.json();
