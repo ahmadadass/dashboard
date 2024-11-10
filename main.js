@@ -14,6 +14,8 @@ loginview.innerHTML = `
 //console.log("dataContainer: ", dataContainer)
 dataContainer.appendChild(loginview);
 
+let cookie = 0;
+
 async function vrifaydata() {
     let data;
     let username = document.querySelector('#username');
@@ -33,7 +35,8 @@ async function vrifaydata() {
 
     data = await response.json();
     if (data.statis == "good"){
-        
+
+        cookie = data.cookie
         setViewMain();
         
         google.charts.load('current', { packages: ['corechart'] });

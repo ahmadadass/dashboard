@@ -16,26 +16,26 @@ const callback_api_number_of_users = {callback_query: {data: "statistics"}}
 const callback_api_number_of_Cases = {callback_query: {data: "getCasesCount"}}
 const response_ok = {statis: "good"}
 const response_not_ok = {statis: "bad"}
-let userkey = 0;
-
+let cookies = [];
 
 exports.handler = async (event, context) => {
     // Get data from request body if it's a POST request
     const body = JSON.parse(event.body || '{}');
-    console.log("user key: ", userkey);
 
+    console.log('context: ', context)
     // Example response message
     //console.log('event: ', event);
     console.log('body: ', body);
 
-
     const message = body.car;
     let userCountArray;
     let caseCountArray;
+
     if (message == "thiscodeisnotforshaeringsenddata") { 
-        console.log("Event.logtoken: ", event.logToken);
-        console.log("userkey: ", userkey);
-        if (event.logToken == userkey){
+        const cookie = body.cookie;
+        console.log("user cookie: ", cookie);
+
+        if (cookies.includes(cookie)){
             console.log("went inside send data");
             userCountArray = await getdata(callback_api_number_of_users) || {};
             caseCountArray = await getdata(callback_api_number_of_Cases) || {};
@@ -49,9 +49,16 @@ exports.handler = async (event, context) => {
             }
         }
     } else if (message == "thiscodeisnotforshaeringlogin"){
-        console.log("inside login: ", body);
         if (body.username == "admin" && body.password == "adminisahmad"){
-            userkey = event.logToken
+
+            let cookie = Math.random().toString(36).substring(2,7);
+            cookies.push(cookie)
+
+            response_ok = {
+                statis: "good",
+                cookie: cookie
+            }
+
             return {
                 statusCode: 200,
                 headers: {
