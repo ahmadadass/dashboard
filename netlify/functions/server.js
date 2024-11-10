@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
     console.log("user key: ", userkey);
 
     // Example response message
-    console.log('event: ', event);
+    //console.log('event: ', event);
     console.log('body: ', body);
 
 
@@ -33,7 +33,10 @@ exports.handler = async (event, context) => {
     let userCountArray;
     let caseCountArray;
     if (message == "thiscodeisnotforshaeringsenddata") { 
+        console.log("Event.logtoken: ", event.logToken);
+        console.log("userkey: ", userkey);
         if (event.logToken == userkey){
+            console.log("went inside send data");
             userCountArray = await getdata(callback_api_number_of_users) || {};
             caseCountArray = await getdata(callback_api_number_of_Cases) || {};
         } else {
@@ -46,6 +49,7 @@ exports.handler = async (event, context) => {
             }
         }
     } else if (message == "thiscodeisnotforshaeringlogin"){
+        console.log("inside login: ", body);
         if (body.username == "admin" && body.password == "adminisahmad"){
             userkey = event.logToken
             return {
