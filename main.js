@@ -61,8 +61,10 @@ function setViewMain(){
     //mainView.classList.add('div')
     mainView.innerHTML = `
         <div class="loader"></div>
-        <div id="chart_user" style="width: 500px; height: 250px;"></div>
-        <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+        <div class="row">
+            <div id="chart_user" style="width: 500px; height: 250px;"></div>
+            <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+        </div>
         `
 
     dataContainer.appendChild(mainView);
