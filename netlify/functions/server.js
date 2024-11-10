@@ -16,10 +16,14 @@ const callback_api_number_of_users = {callback_query: {data: "statistics"}}
 const callback_api_number_of_Cases = {callback_query: {data: "getCasesCount"}}
 const response_ok = {statis: "good"}
 const response_not_ok = {statis: "bad"}
-let userkey;
+let userkey = 0;
+
+
+
 exports.handler = async (event, context) => {
     // Get data from request body if it's a POST request
     const body = JSON.parse(event.body || '{}');
+    console.log("user key: ", userKey);
 
     // Example response message
     console.log('event: ', event);
@@ -91,4 +95,3 @@ async function getdata(data) {
         console.error(error);
     }
 }
-
