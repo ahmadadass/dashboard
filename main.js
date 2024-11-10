@@ -66,10 +66,10 @@ function setViewMain(){
         <div class="loader"></div>
         <div class="row">
             <div class="column">
-                <div id="chart_user" style="width: 500px; height: 250px;"></div>
+                <div id="chart_user" style="width: 400px; height: 250px;"></div>
             </div>
             <div class="column">
-                <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+                <div id="chart_cases" style="width: 400px; height: 250px;"></div>
             </div>
         </div>
         `
@@ -122,11 +122,11 @@ async function drawChart() {
         <div class="row">
             <div class="column">
                 <h1>عدد المستخدمين في العمادات</h1>
-                <div id="chart_user" style="width: 500px; height: 250px;"></div>
+                <div id="chart_user" style="width: 400px; height: 250px;"></div>
             </div>
             <div class="column">
                 <h1>القضايا الفنية</h1>
-                <div id="chart_cases" style="width: 500px; height: 250px;"></div>
+                <div id="chart_cases" style="width: 400px; height: 250px;"></div>
             </div>
         </div>
         `
@@ -137,6 +137,7 @@ async function drawChart() {
     let options = {
         title: 'عدد المستخدمين',
         is3D: true,  // Adds a 3D effect
+        maximize: true,
         pieSliceText: 'value',
         /*slices: {
             1: { offset: 0.1 },  // Offset a slice for emphasis
@@ -144,7 +145,7 @@ async function drawChart() {
         backgroundColor: '#b4ebf3',
         legend: { 
             position: 'labeled',
-            font_size: '20px'
+            font_size: '40px'
          },
         chartArea: {
             width: '100%',
