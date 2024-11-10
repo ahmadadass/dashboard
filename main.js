@@ -115,9 +115,11 @@ async function drawChart() {
     mainView.innerHTML = ` 
         <div class="row">
             <div class="column">
+                <h1>عدد المستخدمين في العمادات</h1>
                 <div id="chart_user" style="width: 500px; height: 250px;"></div>
             </div>
             <div class="column">
+                <h1>القضايا الفنية</h1>
                 <div id="chart_cases" style="width: 500px; height: 250px;"></div>
             </div>
         </div>
