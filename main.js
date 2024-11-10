@@ -143,9 +143,10 @@ async function drawChart() {
             1: { offset: 0.1 },  // Offset a slice for emphasis
         },*/
         backgroundColor: '#b4ebf3',
+        //fontSize: '50px',
         legend: { 
             position: 'labeled',
-            font_size: '40px'
+            font_size: 20
          },
         chartArea: {
             width: '100%',
