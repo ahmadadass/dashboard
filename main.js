@@ -39,6 +39,8 @@ async function vrifaydata() {
         google.charts.load('current', { packages: ['corechart'] });
 
         // Set a callback to run when the API is loaded.
+        console.log("sleeping ...")
+        sleep(1000)
         google.charts.setOnLoadCallback(drawChart);
 
     } else if (data.statis == "bad"){
@@ -79,23 +81,23 @@ async function drawChart() {
     let data;
     try {
         const response = await fetch('/.netlify/functions/server', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({car: "thiscodeisnotforshaeringsenddata"}),
-    });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({car: "thiscodeisnotforshaeringsenddata"}),
+        });
 
-    data = await response.json();
-
+        data = await response.json();
     //console.log("data form server.js: " , data);
     } catch (error) {
         console.error('Error calling serverless function:', error);
         document.getElementById('response').textContent = 'An error occurred';
     }
             
+    console.log('data: ', data)
     data.users.statistics.unshift(['عمادة', 'العدد']);
-    data.cases.statistics.unshift(['عمادة', 'العدد']);
+    data.cases.statistics.unshift(['الطلبات', 'العدد']);
 
     var data_values_user = google.visualization.arrayToDataTable(data.users.statistics);
     var data_values_cases = google.visualization.arrayToDataTable(data.cases.statistics);
@@ -135,7 +137,7 @@ async function drawChart() {
         /*slices: {
             1: { offset: 0.1 },  // Offset a slice for emphasis
         },*/
-        backgroundColor: '#f4f4f4',
+        backgroundColor: '#b4ebf3',
         legend: { position: 'right' },
         chartArea: {
             width: '100%',
